@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/writing-assist/static/js/runtime~main.93e54ee0.js"
   },
   {
-    "revision": "418ec7c969a2bfb2047e",
-    "url": "/writing-assist/static/js/main.418ec7c9.chunk.js"
+    "revision": "dfa064554acce953e5ed",
+    "url": "/writing-assist/static/js/main.dfa06455.chunk.js"
   },
   {
     "revision": "ad4591f84e9b761fa829",
     "url": "/writing-assist/static/js/1.ad4591f8.chunk.js"
   },
   {
-    "revision": "418ec7c969a2bfb2047e",
-    "url": "/writing-assist/static/css/main.aac0f9a7.chunk.css"
+    "revision": "dfa064554acce953e5ed",
+    "url": "/writing-assist/static/css/main.f5217232.chunk.css"
   },
   {
-    "revision": "4e856383c723cad0e643971d51e19e18",
+    "revision": "aa8c4541674dd1fbbb9276a2d81fabbc",
     "url": "/writing-assist/index.html"
   }
 ];
