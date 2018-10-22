@@ -13,8 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <CanvasComponent
-          letter="abcd efgh ijkl mnop qrst"
+          letter="A"
           colorIndexConfig={colorIndexConfig}
+          lineWidth={16}
           height={window.innerHeight - 60}
           width={window.innerWidth}
         />

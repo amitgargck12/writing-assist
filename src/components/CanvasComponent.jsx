@@ -17,15 +17,16 @@ export default class CanvasComponent extends Component {
     can.addEventListener("touchend", this.handleTouchEnd, false);
     this.offsetLeft = can.offsetLeft;
     this.offsetTop = can.offsetTop;
-    this.ctx.font = "100px Learning Curve";
+    this.ctx.font = `${this.props.lineWidth*25}px sans-serif`;
     let baseColorArray = ['00','00','00'];
     baseColorArray[this.props.colorIndexConfig.base]='FF';
     this.ctx.fillStyle = "#"+baseColorArray.join('');
-    this.ctx.textAlign = "start";
-    this.ctx.fillText("abcd  efgh", 20, 90);
-    this.ctx.fillText("ijkl  mnop", 20, 190);
-    this.ctx.fillText("qrst  uvwx", 20, 290);
-    this.ctx.fillText("yz", 20, 390);
+    this.ctx.textAlign = "center";
+    // this.ctx.fillText("abcd  efgh", 20, 90);
+    // this.ctx.fillText("ijkl  mnop", 20, 190);
+    // this.ctx.fillText("qrst  uvwx", 20, 290);
+    // this.ctx.fillText("yz", 20, 390);
+    this.ctx.fillText("A", can.width/2, 390);
     this.canvas = can;
     this.initialData = this.ctx.getImageData(0, 0, can.width, can.height);
     console.log(this.canvas.width);
@@ -91,7 +92,7 @@ export default class CanvasComponent extends Component {
     let canX = e.targetTouches[0].pageX - this.offsetLeft;
     let canY = e.targetTouches[0].pageY - this.offsetTop;
     if (this.state.mouseIsDown) {
-      this.drawCurve(this.ctx, canX, canY, 2);
+      this.drawCurve(this.ctx, canX, canY, this.props.lineWidth);
     }
   }
   handleTouchEnd() {
