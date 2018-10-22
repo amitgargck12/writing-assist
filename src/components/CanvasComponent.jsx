@@ -18,7 +18,9 @@ export default class CanvasComponent extends Component {
     this.offsetLeft = can.offsetLeft;
     this.offsetTop = can.offsetTop;
     this.ctx.font = "100px Learning Curve";
-    this.ctx.fillStyle = "red";
+    let baseColorArray = ['00','00','00'];
+    baseColorArray[this.props.colorIndexConfig.base]='FF';
+    this.ctx.fillStyle = "#"+baseColorArray.join('');
     this.ctx.textAlign = "start";
     this.ctx.fillText("abcd  efgh", 20, 90);
     this.ctx.fillText("ijkl  mnop", 20, 190);
@@ -52,7 +54,11 @@ export default class CanvasComponent extends Component {
     let correctPixels = 0;
     let wrongPixels = 0;
     let missedPixels = 0;
-    let evaluator = new Evaluator(this.initialData.data, rowWidth);
+    let evaluator = new Evaluator(
+      this.initialData.data,
+      rowWidth,
+      this.props.colorIndexConfig
+    );
     for (var i = 0; i < columnHeight; i++) {
       let newImageData = this.ctx.getImageData(0, i, this.canvas.width, 1);
       evaluator.setRowData(i, newImageData.data);
@@ -109,9 +115,10 @@ export default class CanvasComponent extends Component {
   }
 }
 
-function Evaluator(oldArray, rowWidth) {
+function Evaluator(oldArray, rowWidth, colorIndexConfig) {
   this.oldArray = oldArray;
   this.rowWidth = rowWidth;
+  this.colorIndexConfig = colorIndexConfig;
 
   this.setRowData = (i, newArray) => {
     this.i = i;
@@ -128,25 +135,29 @@ function Evaluator(oldArray, rowWidth) {
       this.newArray[index] === 0 &&
       this.newArray[index + 1] === 0 &&
       this.newArray[index + 2] === 0 &&
-      this.newArray[index + 3] ===0
+      this.newArray[index + 3] === 0
     );
   };
   this.hasBeenDrawn = function() {
-    return this.newArray[4 * this.j] < 255;
+    return this.newArray[4 * this.j + colorIndexConfig.base] < 255;
   };
   this.hasBeenDrawnCorrect = function() {
     let oldIndex = this.i * this.rowWidth * 4 + 4 * this.j;
-    return this.oldArray[oldIndex] > 0;
+    return this.oldArray[oldIndex + colorIndexConfig.base] > 0;
   };
   this.markCorrect = function() {
     let oldIndex = this.i * this.rowWidth * 4 + 4 * this.j;
-    updateRowValues(this.newArray, 4 * this.j, [0,255,0,this.oldArray[oldIndex + 3]]);
+    let newValues = [0, 0, 0, this.oldArray[oldIndex + 3]];
+    newValues[colorIndexConfig.correct] = 255;
+    updateRowValues(this.newArray, 4 * this.j, newValues);
   };
   this.markWrong = function(newArray, j) {
-    updateRowValues(this.newArray, 4 * this.j, [0,0,255,50]);
+    let newValues = [0, 0, 0, 190];
+    newValues[colorIndexConfig.wrong] = 255;
+    updateRowValues(this.newArray, 4 * this.j, newValues);
   };
 
-  function updateRowValues(array, startIndex, values){
-      values.forEach((val,index) => array[startIndex+index]=val)
+  function updateRowValues(array, startIndex, values) {
+    values.forEach((val, index) => (array[startIndex + index] = val));
   }
 }
