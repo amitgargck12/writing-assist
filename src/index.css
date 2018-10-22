@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@font-face{
+  font-family: "Learning Curve";
+  src: local('Learning Curve'),
+  url("fonts/learning_curve_bold_ot_tt.ttf") format("truetype"),
+  url("fonts/learning_curve_bold_ot_ps.otf") format("opentype");
+}
+
+.root, .App{
+  width: 100%;
+  height: 100%;
+}
+.controls{
+  height: 60px;
+}
