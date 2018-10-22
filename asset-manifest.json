@@ -1,7 +1,7 @@
 {
   "main.css": "/writing-assist/static/css/main.c704354d.chunk.css",
-  "main.js": "/writing-assist/static/js/main.f6989a92.chunk.js",
-  "main.js.map": "/writing-assist/static/js/main.f6989a92.chunk.js.map",
+  "main.js": "/writing-assist/static/js/main.b1bf338c.chunk.js",
+  "main.js.map": "/writing-assist/static/js/main.b1bf338c.chunk.js.map",
   "static/js/1.ad4591f8.chunk.js": "/writing-assist/static/js/1.ad4591f8.chunk.js",
   "static/js/1.ad4591f8.chunk.js.map": "/writing-assist/static/js/1.ad4591f8.chunk.js.map",
   "runtime~main.js": "/writing-assist/static/js/runtime~main.93e54ee0.js",
@@ -9,6 +9,6 @@
   "static/css/main.c704354d.chunk.css.map": "/writing-assist/static/css/main.c704354d.chunk.css.map",
   "static/media/index.css": "/writing-assist/static/media/learning_curve_bold_ot_tt.d90a40c2.ttf",
   "index.html": "/writing-assist/index.html",
-  "precache-manifest.7e7bbf0568f7364aeeace7018f22eee9.js": "/writing-assist/precache-manifest.7e7bbf0568f7364aeeace7018f22eee9.js",
+  "precache-manifest.d8121516e0bdafe8a1c92171c60ad74e.js": "/writing-assist/precache-manifest.d8121516e0bdafe8a1c92171c60ad74e.js",
   "service-worker.js": "/writing-assist/service-worker.js"
 }
