@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/writing-assist/static/css/main.c704354d.chunk.css"
   },
   {
-    "revision": "8df5b701132c5d3aa49e5b48c29a5e1b",
+    "revision": "668cc98aade880a3d38b885cac281ac1",
     "url": "/writing-assist/index.html"
   }
 ];
